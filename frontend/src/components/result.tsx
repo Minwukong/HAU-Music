@@ -1,35 +1,57 @@
-import React from 'react';
+import React from "react";
+
 import { makeStyles } from "@material-ui/core/styles";
-import Button from '@material-ui/core/Button'; // Button을 import 한다.
+import { ThemeProvider } from "@material-ui/styles";
+import { CssBaseline, Typography, createMuiTheme, AppBar } from "@material-ui/core";
+import AudioPlayer from 'react-h5-audio-player';
 
 
 const useStyles = makeStyles({
-    root: {
-      background: 'linear-gradient(45deg, #FE6B8B 30%, #F333 90%)',
-      border: 0,
-      borderRadius: 3,
-      boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-      color: 'white',
-      height: 48,
-      padding: '0 30px',
-    },
-  });
+
+  root:{
+    height: "100%",
+    width: "100%",
+    background: "black"
+  },
+
+  text: {
+    color: "white",
+  },
+
+});
+
+const theme = createMuiTheme({
+  palette: {
+    type: "dark"
+  }
+});
 
 
 
-const Result = () => {
-    const classes = useStyles();
-    return (
+const Result=()=> {
+  const classes = useStyles();
+  return (
+    
+  <>
 
-        <div>
-            <Button className={classes.root} >
-                Hello World
-            </Button>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+            <Typography style={{marginTop:50}}className={classes.text}>안녕 난 민준이</Typography>
+            <Typography className={classes.text}>안녕 난 민준이</Typography>
+            <Typography className={classes.text}>안녕 난 민준이</Typography>
+          <AppBar  color="inherit">
+            <Typography variant="h6" className={classes.text}>앙 기모띠~</Typography>   
+          </AppBar>
+          <AudioPlayer
+    autoPlay
+    src="http://example.com/audio.mp3"
+    onPlay={e => console.log("onPlay")}
+    // other props here
+  />
+    </ThemeProvider>
+  </>
+  );
+}
 
-        </div>
-       
-    );
-};
 
 export default Result;
-
