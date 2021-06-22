@@ -1,7 +1,7 @@
-import React from 'react';
+import TestingContainers from '../containers/TestingContainers';
 
 const TestingPage = () => {
-	return <div></div>;
+	return <TestingContainers />;
 };
 
 export default TestingPage;
